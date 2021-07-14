@@ -1,81 +1,68 @@
-## Url-Formatter
+# Url-Formatter
 
-* This is a simple react project to format urls of text
+* This is a simple react component to format urls of text
 * Technologies used:
     * [ReactJs](https://reactjs.org) (with npx create-react-app)
     * [react-bootstrap](https://react-bootstrap.github.io)
 
-* The web app uses the simple javascript code snippet  at `Format.js` file to split the text
-* Then, a regural expression is used during render, and with some HTML and CSS simple tricks, the urls ar displayed as clickable hrefs
-* Most importantly, the initial text format (spaces, new lines, etc) remains the same.
+* It uses a simple javascript code snippet to split the text
+* Then, a regural expression is used during render to filter the text parts, and with some HTML and CSS simple tricks, the urls are displayed as clickable hrefs
+* Most importantly, <b>the initial text format (spaces, new lines, etc) remains the same</b>
 
-# Getting Started with Create React App
+## Quick demo 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[url-formatter](https://john-atha.github.io/url-formatter-demo)
 
-## Available Scripts
+## Github repository
 
-In the project directory, you can run:
+[url-formatter](https://github.com/John-Atha/url-formatter)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Install using `npm i url-formatter`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Quick start/Usage:
 
-### `npm test`
+In a React app:
+    import { UrlFormatter } from 'url-formatter';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Basic Usage
+* Pass the text you want to format with the `text` prop
+* Text should be a <b>string</b>
+```javascript
+    <UrlFormatter text={text} />
+```
+### Styling
+###### Text container styling
+* you can define the container styling giving the prop `style` which should be an object and follow the general rules of decalring styling in react (css)
+* example:
+```javascript
+    <UrlFormatter text={text} style={{'border': '1px solid red'}}/>
+```
+###### Urls styling
+* you can define the urls styling giving the prop `url` which should be an object (again following the general styling syntax)
+* example:
+```javascript
+    <UrlFormatter text={text} url={{'color': 'red'}}/>
+```
+###### Other words styling
+* you can define the simple words styling giving the prop `word` which should be an object (again following the general styling syntax)
+* example:
+```javascript
+    <UrlFormatter text={text} word={{'color': 'red'}}/>
+```
+###### Space character length
+* you can define the length of the space character giving the prop `space` as string
+* the default value is 4px
+* example:
+```javascript
+    <UrlFormatter text={text} space={'4px'}/>
+```
+###### In general, bear in mind that
+* words are divided by whitespaces and then they are rendered as seperate divs
+* as a result, they are going to inherit all their ancestors' CSS
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact me
+* Developer: Giannis Athanasiou
+* Github: [John-Atha](https://www.github.com/John-Atha)
+* Email: giannisj3@gmail.com

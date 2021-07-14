@@ -1,18 +1,21 @@
 /* regex expression from: https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url */
 
-import './App.css';
 import React, { useState, useEffect } from 'react';
 
-function Format(props) {
+const UrlFormatter = (props) => {
 
   const [text, setText] = useState("");
+  const [style, setStyle] = useState(props.style);
+  const [space, setSpace] = useState(props.space);
+  const [word, setWord] = useState(props.word);
+  const [url, setUrl] = useState(props.url);
   const [formatted, setFormatted] = useState([]);
   const expression = /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/;
   const url_regex = new RegExp(expression);
   
   useEffect(()=>{
     setText(props.text);
-  }, [props.text])
+  }, [props.text]);
   
   useEffect(() => {
     const s = text;
@@ -34,20 +37,53 @@ function Format(props) {
       i++;
     }
     setFormatted(parts);
-  }, [text])
+  }, [text]);
+
+  useEffect(() => {
+      setWord(props.word);
+  }, [props.word]);
+
+  useEffect(() => {
+      setUrl(props.url);
+  }, [props.url]);
+
+  useEffect(()=> {
+    setStyle(props.style);
+  }, [props.style]);
+
+  useEffect(()=> {
+      setSpace(props.space);
+  }, [props.space]);
   
+  const flexStyle = {
+    'display': 'flex',
+    'flexFlow': 'row wrap',
+  };
+  const breakStyle = {
+    'flexBasis': '100%',
+    'height': '0',
+  };
+  const spaceStyle = {
+    'height': '0',
+    'width': space || '4px',
+  };
+  const wordStyle = {
+      'marginRight': space || '4px',
+      'height': 'minContent',
+  };
+
   return (
-    <div className='flex-layout result'>
+    <div style={{...flexStyle, ...style}}>
       {formatted.map((value, index) => {
         if (value==='\n') { 
-          return ( <div className='break' key={index} /> )
+          return ( <div style={ breakStyle } key={index} /> )
         }
         else if (value===' ') {
-          return( <div className='space' key={index} />  )
+          return( <div style={ spaceStyle } key={index} /> )
         }
         else if (value.match(url_regex)) {
           return (
-            <a className='word'
+            <a style={{ ...wordStyle, ...url }}
               rel='noopener noreferrer'
               target='_blank'
               href={value.includes('//') ? value : '//'+value}
@@ -57,7 +93,7 @@ function Format(props) {
           )
         }
         else {
-          return ( <div className='word' key={index}>{value}</div> )
+          return ( <div style={{ ...wordStyle, ...word }} key={index}>{value}</div> )
         }
       })}
     </div>
@@ -65,4 +101,4 @@ function Format(props) {
 
 }
 
-export default Format;
+export default UrlFormatter;

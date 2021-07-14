@@ -24,8 +24,9 @@
 ## Quick start/Usage:
 
 In a React app:
+```javascript
     import { UrlFormatter } from 'url-formatter';
-
+```
 ### Basic Usage
 * Pass the text you want to format with the `text` prop
 * Text should be a <b>string</b>
@@ -33,32 +34,32 @@ In a React app:
     <UrlFormatter text={text} />
 ```
 ### Styling
-###### Text container styling
+#### Text container styling
 * you can define the container styling giving the prop `style` which should be an object and follow the general rules of decalring styling in react (css)
 * example:
 ```javascript
     <UrlFormatter text={text} style={{'border': '1px solid red'}}/>
 ```
-###### Urls styling
+#### Urls styling
 * you can define the urls styling giving the prop `url` which should be an object (again following the general styling syntax)
 * example:
 ```javascript
     <UrlFormatter text={text} url={{'color': 'red'}}/>
 ```
-###### Other words styling
+#### Other words styling
 * you can define the simple words styling giving the prop `word` which should be an object (again following the general styling syntax)
 * example:
 ```javascript
     <UrlFormatter text={text} word={{'color': 'red'}}/>
 ```
-###### Space character length
+#### Space character length
 * you can define the length of the space character giving the prop `space` as string
 * the default value is 4px
 * example:
 ```javascript
     <UrlFormatter text={text} space={'4px'}/>
 ```
-###### In general, bear in mind that
+#### In general, bear in mind that
 * words are divided by whitespaces and then they are rendered as seperate divs
 * as a result, they are going to inherit all their ancestors' CSS
 

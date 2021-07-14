@@ -1,9 +1,6 @@
 # Url-Formatter
 
-* This is a simple react component to format urls of text
-* Technologies used:
-    * [ReactJs](https://reactjs.org) (with npx create-react-app)
-    * [react-bootstrap](https://react-bootstrap.github.io)
+* This is a simple [ReactJs](https://reactjs.org) (with npx create-react-app) component to format urls of text
 
 * It uses a simple javascript code snippet to split the text
 * Then, a regural expression is used during render to filter the text parts, and with some HTML and CSS simple tricks, the urls are displayed as clickable hrefs
